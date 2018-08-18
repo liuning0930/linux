@@ -1,0 +1,54 @@
+* 配置过程记录
+** 安装ssh-server
+   1. 获取ifconfig
+      #+BEGIN_SRC sh
+        sudo apt-get install net-tools
+      #+END_SRC
+      获取inet addr 或者 eth0
+   2. 使用ssh 连接，这样可以在电脑上用自己的terminal来操作更加方便
+** 安装antigen
+   1. 进入github：https://github.com/zsh-users/antigen
+   2. 新建一个.zsh_antigen,把下面的代码放进去：
+      #+BEGIN_SRC sh
+        source {path_to_antigen}/antigen.zsh
+
+        # Load the oh-my-zsh's library.
+        antigen use oh-my-zsh
+
+        # Bundles from the default repo (robbyrussell's oh-my-zsh).
+        antigen bundle git
+        antigen bundle z
+        antigen bundle python
+        antigen bundle pip
+        antigen bundle vi-mode
+        antigen bundle command-not-found
+
+        antigen bundle zsh-users/zsh-autosuggestions
+        antigen bundle zsh-users/zsh-completions
+        antigen bundle zdharma/fast-syntax-highlighting
+        antigen bundle changyuheng/zsh-interactive-cd
+        antigen bundle laurenkt/zsh-vimto
+        antigen bundle psprint/history-search-multi-word
+
+        # Load the theme.
+        antigen bundle mafredri/zsh-async
+        antigen bundle sindresorhus/pure
+
+        # Tell Antigen that you're done.
+        antigen apply
+      #+END_SRC
+   3. 然后在.zshrc中添加一行
+      #+BEGIN_SRC c
+        source .zsh_antigen
+      #+END_SRC
+
+** 安装emacs25
+   #+BEGIN_SRC sh
+     apt-get install software-properties-common
+     sudo add-apt-repository ppa:kelleyk/emacs
+     sudo apt-get update
+     sudo apt-get install emacs25
+   #+END_SRC
+* 配置mac python
+  1. brew unlink python && brew link python2 --force
+  2. brew link --overwrite python3

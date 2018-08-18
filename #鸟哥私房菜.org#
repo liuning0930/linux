@@ -1,0 +1,20 @@
+* 正确的关机方法
+** 查看系统的使用状态
+   who: 看目前正在使用的用户
+   netstat -a: 查看当前的网络状态
+   ps -aux: 查看后台执行的程序
+* 正确的关机命令使用
+  sync: 将数据同步写入硬盘
+  shutdown: 关机命令
+  reboot halt poweroff: 重启，关机
+  切换执行等级:
+  init level 0: 关机
+  init level 3: 纯命令行模式
+  init level 5: 含有图形界面模式
+  init level 6: 重启
+
+
+* linux commands
+  1. fsck: 文件系统检查的命令
+  2. resize /tmp/: sudo mount -t tmpfs -o exec tmpfs /tmp
+     sudo mount -o remount,size=5G /tmp/
